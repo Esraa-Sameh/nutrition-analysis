@@ -1,10 +1,22 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AnalysisComponent } from './analysis/analysis.component';
+import { ErrorComponent } from './error/error.component';
+import { HomeComponent } from './home/home.component';
+import { ResolverService } from './resolver.service';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: '', component: HomeComponent, pathMatch: 'full' },
+  {
+    path: 'analysis',
+    component: AnalysisComponent,
+    resolve: { analysisResult: ResolverService },
+  },
+  {path: 'error', component: ErrorComponent}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

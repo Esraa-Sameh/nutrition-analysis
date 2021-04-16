@@ -1,0 +1,21 @@
+.home{
+    &__header{
+        text-align: center;
+        font-weight: 200;
+        margin-bottom: 50px;
+        font-size: 50px;
+    }
+    &__desc{
+        font-size: 20px;
+        text-align: center;
+        span{
+            color: #e67e22;
+        }
+    }
+    form{
+        label{
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+    }
+}
