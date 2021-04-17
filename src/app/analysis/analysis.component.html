@@ -1,1 +1,41 @@
-<p>analysis works!</p>
+<div class="container nutrition">
+    <div class="row nutrition__header">
+        <div class="col-12">
+            <h1>Nutrition Analysis</h1>
+        </div>
+    </div>
+    <div class="row nutrition__table">
+        <div class="col-12">
+            <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Unit</th>
+                    <th scope="col">Food</th>
+                    <th scope="col">Calories</th>
+                    <th scope="col">Weight</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let ingredient of ingredientsDetails">
+                   
+                    <td>{{ ingredient.quantity }}</td>
+                    <td>{{ ingredient.measure }}</td>
+                    <td>{{ ingredient.food }}</td>
+                    <td>{{ ingredient.calories | number: '1.1-1' }} kcal</td>
+                    <td>{{ ingredient.weight | number: '1.1-1' }} gm</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+    <div class="row nutrition__total">
+        <div class="col-12">
+            <button type="button" class="btn btn-success">Total Nutrition</button>
+        </div>
+    </div>
+    <div *ngIf="viewTotal" class="row nutrition__daily">
+
+    </div>
+</div>
+

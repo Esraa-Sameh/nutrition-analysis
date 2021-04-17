@@ -7,8 +7,8 @@ import { Router } from '@angular/router';
 })
 export class AnalyzeService {
   private _ingredients: string[];
-  private _appID = '963f46f2';
-  private _appKey = '4630a5611581291b94944f40ea98e4d6';
+  private _appID = '47379841';
+  private _appKey = 'd28718060b8adfd39783ead254df7f92';
   private _endpoint = 'https://api.edamam.com/api/nutrition-details';
   constructor(private router: Router, private http: HttpClient) {}
 
@@ -33,5 +33,8 @@ export class AnalyzeService {
         headers: headers
       }));
     } 
+    else{
+      this.router.navigate(['/'])
+    }
   }
 }

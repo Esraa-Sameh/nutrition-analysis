@@ -14,8 +14,8 @@
   </div>
   <div class="row">
     <div class="col-12">
-      <form #ingredientsForm="ngForm" (ngSubmit)="onSubmit(ingredientsForm)">
-        <div class="form-group">
+      <form #ingredientsForm="ngForm" class="form" (ngSubmit)="onSubmit(ingredientsForm)">
+        <div class="form-group form__textarea">
           <label for="text-area">Ingredients</label>
           <textarea
             placeholder="Enter the ingredients"
@@ -27,7 +27,7 @@
             required
           ></textarea>
         </div>
-        <div class="form-group">
+        <div class="form-group form__submit">
           <button
             type="submit"
             class="btn btn-success"
