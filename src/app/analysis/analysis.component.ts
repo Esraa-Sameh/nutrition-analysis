@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { IngredientDetails } from '../interfaces/ingredient-details';
+import { ActivatedRoute, Router } from '@angular/router';
+import { IngredientDetails } from '../shared/ingredient-details.interface';
 @Component({
   selector: 'app-analysis',
   templateUrl: './analysis.component.html',
@@ -8,48 +8,48 @@ import { IngredientDetails } from '../interfaces/ingredient-details';
 })
 export class AnalysisComponent implements OnInit {
   ingredientsDetails: IngredientDetails[] = [];
-  nutritionFacts: {
-    calories: number;
-    fat: number;
-    cholesterol: number;
-    sodium: number;
-    carbohydrate: number;
-    protien;
-    vitaminD;
-    calcium;
-    iron;
-    potassium;
-  };
+  totalNutrients;
+  totalDaily;
+  totalCalories;
   viewTotal: boolean = false;
-  constructor(private route: ActivatedRoute) {}
+  ingredientError: boolean = false;
+  constructor(private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
     this.route.data.subscribe((res) => {
+      //extracting the total nutrition facts from the http response sent by the resolver
+      this.totalCalories = res['analysisResult'].calories;
+      if (!this.totalCalories) {
+        sessionStorage.setItem(
+          'errorMessage',
+          'We cannot calculate the nutrition for your recipe! Please make sure of spelling or if you have entered correct quantities for the ingredients.'
+        );
+        this.router.navigate(['/error']);
+      }
+      this.totalNutrients = res['analysisResult'].totalNutrients;
+      this.totalDaily = res['analysisResult'].totalDaily;
+      console.log(this.totalNutrients);
+      console.log(this.totalDaily);
       //extracting the details of each ingredient from the http response sent by the resolver
       for (let item of res['analysisResult']['ingredients']) {
-        let ingredientDetails = {
-          calories: item['parsed'][0]['nutrients']['ENERC_KCAL']['quantity'],
-          quantity: item['parsed'][0]['quantity'],
-          measure: item['parsed'][0]['measure'],
-          food: item['parsed'][0]['foodMatch'],
-          weight: item['parsed'][0]['weight'],
-        };
-        this.ingredientsDetails.push(ingredientDetails);
+        if(item['parsed']){
+          let ingredientDetails = {
+            calories: item['parsed'][0]['nutrients']['ENERC_KCAL']['quantity'],
+            quantity: item['parsed'][0]['quantity'],
+            measure: item['parsed'][0]['measure'],
+            food: item['parsed'][0]['foodMatch'],
+            weight: item['parsed'][0]['weight'],
+          };
+          this.ingredientsDetails.push(ingredientDetails);
+        }
+       else{
+        this.ingredientError = true
+       }
+        
       }
-      //extracting the total nutrition facts from the http response sent by the resolver
-      this.nutritionFacts = {
-        calories: res['analysisResult'].calories, 
-        fat: res['analysisResult'].totalDaily['FAT'].quantity, 
-        cholesterol: res['analysisResult'].totalDaily.CHOLE.quantity,
-        sodium: res['analysisResult'].totalDaily.NA.quantity,
-        carbohydrate: res['analysisResult'].totalDaily.CHOCDF.quantity,
-        protien: res['analysisResult'].totalDaily.PROCNT.quantity,
-        vitaminD: res['analysisResult'].totalDaily.VITD.quantity,
-        calcium: res['analysisResult'].totalDaily.CA.quantity,
-        iron: res['analysisResult'].totalDaily.FE.quantity,
-        potassium: res['analysisResult'].totalDaily.K.quantity,
-      };
-     console.log(this.nutritionFacts)
     });
+  }
+  viewTotalNutrition() {
+    this.viewTotal = true;
   }
 }

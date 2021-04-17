@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AnalyzeService } from '../analyze.service';
+import { AnalyzeService } from '../shared/services/analyze.service';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +15,11 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit(ingredientsForm: NgForm) {
+    //get the ingredients from the textarea as a string, then split the string with the line breaks
     this.ingredients = ingredientsForm.value['ingredients'].split(/\n/);
+    //remove the empty items to handle the error if the user entered a new line without typing in it
+    this.ingredients = this.ingredients.filter(item => item!="");
+    //pass the ingredients to the service
     this.analyzeService.ingredients = this.ingredients;
     this.router.navigate(['/analysis']);
   }

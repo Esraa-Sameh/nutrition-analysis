@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { AnalysisComponent } from './analysis/analysis.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { HttpErrorInterceptor } from './http-error.interceptor';
+import { HttpErrorInterceptor } from './shared/http-error.interceptor';
 import { ErrorComponent } from './error/error.component';
 @NgModule({
   declarations: [AppComponent, HomeComponent, AnalysisComponent, ErrorComponent],

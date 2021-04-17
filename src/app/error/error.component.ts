@@ -11,7 +11,8 @@ export class ErrorComponent implements OnInit {
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.route.queryParamMap.subscribe(params => this.errorMessage = params['params'].error)
+    this.errorMessage = sessionStorage.getItem('errorMessage')
+    //this.route.queryParamMap.subscribe(params => this.errorMessage = params['params'].error)
   }
 
 }
