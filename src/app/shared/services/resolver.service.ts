@@ -18,7 +18,6 @@ export class ResolverService implements Resolve <any>{
       return this.analyzeService.analyze().pipe(map(
         res => {
           if (res) {
-            console.log(res)
             return res;
           } else {
             this.router.navigate(['/error']);

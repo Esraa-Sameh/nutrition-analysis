@@ -21,8 +21,8 @@
             <td>{{ ingredient.quantity }}</td>
             <td>{{ ingredient.measure }}</td>
             <td>{{ ingredient.food }}</td>
-            <td>{{ ingredient.calories | number: "1.1-1" }} kcal</td>
-            <td>{{ ingredient.weight | number: "1.1-1" }} gm</td>
+            <td>{{ ingredient.calories | number: "1.0-0" }} kcal</td>
+            <td>{{ ingredient.weight | number: "1.0-0" }} gm</td>
           </tr>
         </tbody>
       </table>
@@ -66,40 +66,40 @@
             </tr>
             <tr>
               <th colspan="2"><b>Total Fat</b> {{ totalNutrients.FAT.quantity |  number: "1.1-1"}}  {{ totalNutrients.FAT.unit }}</th>
-              <td><b> {{ totalDaily.FAT.quantity |  number: "1.1-1"}}%</b></td>
+              <td><b> {{ totalDaily.FAT.quantity |  number: "1.0-0"}}%</b></td>
             </tr>
 
             <tr>
               <th colspan="2"><b>Cholesterol</b> {{ totalNutrients.CHOLE.quantity |  number: "1.1-1"}}  {{ totalNutrients.CHOLE.unit }} </th>
-              <td><b>{{ totalDaily.CHOLE.quantity |  number: "1.1-1"}}%</b></td>
+              <td><b>{{ totalDaily.CHOLE.quantity |  number: "1.0-0"}}%</b></td>
             </tr>
             <tr>
               <th colspan="2"><b>Sodium</b> {{ totalNutrients.NA.quantity |  number: "1.1-1"}}  {{ totalNutrients.NA.unit }}</th>
-              <td><b>{{ totalDaily.NA.quantity |  number: "1.1-1"}}%</b></td>
+              <td><b>{{ totalDaily.NA.quantity |  number: "1.0-0"}}%</b></td>
             </tr>
             <tr>  
               <th colspan="2"><b>Total Carbohydrate</b> {{ totalNutrients.CHOCDF.quantity |  number: "1.1-1"}}  {{ totalNutrients.CHOCDF.unit }}</th>
-              <td><b>{{ totalDaily.CHOCDF.quantity |  number: "1.1-1"}}%</b></td>
+              <td><b>{{ totalDaily.CHOCDF.quantity |  number: "1.0-0"}}%</b></td>
             </tr>
             <tr>
               <th colspan="2"><b>Protein</b> {{ totalNutrients.PROCNT.quantity |  number: "1.1-1"}}  {{ totalNutrients.PROCNT.unit }}</th>
-              <td><b>{{ totalDaily.PROCNT.quantity |  number: "1.1-1"}}%</b></td>
+              <td><b>{{ totalDaily.PROCNT.quantity |  number: "1.0-0"}}%</b></td>
             </tr>
             <tr>
               <th colspan="2"><b>Vitamin D</b> {{ totalNutrients.VITD.quantity |  number: "1.1-1"}}  {{ totalNutrients.VITD.unit }}</th>
-              <td><b>{{ totalDaily.VITD.quantity |  number: "1.1-1"}}%</b></td>
+              <td><b>{{ totalDaily.VITD.quantity |  number: "1.0-0"}}%</b></td>
             </tr>
             <tr>
               <th colspan="2"><b>Calcium</b> {{ totalNutrients.CA.quantity |  number: "1.1-1"}}  {{ totalNutrients.CA.unit }}</th>
-              <td><b>{{ totalDaily.CA.quantity |  number: "1.1-1"}}%</b></td>
+              <td><b>{{ totalDaily.CA.quantity |  number: "1.0-0"}}%</b></td>
             </tr>
             <tr>
               <th colspan="2"><b>Iron</b> {{ totalNutrients.FE.quantity |  number: "1.1-1"}}  {{ totalNutrients.FE.unit }}</th>
-              <td><b>{{ totalDaily.FE.quantity |  number: "1.1-1"}}%</b></td>
+              <td><b>{{ totalDaily.FE.quantity |  number: "1.0-0"}}%</b></td>
             </tr>
             <tr>
               <th colspan="2"><b>Potassium</b> {{ totalNutrients.K.quantity |  number: "1.1-1"}}  {{ totalNutrients.K.unit }}</th>
-              <td><b>{{ totalDaily.K.quantity |  number: "1.1-1"}}%</b></td>
+              <td><b>{{ totalDaily.K.quantity |  number: "1.0-0"}}%</b></td>
             </tr>
           </tbody>
         </table>

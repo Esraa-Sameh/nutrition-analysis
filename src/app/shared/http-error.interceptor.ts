@@ -21,15 +21,11 @@ export class HttpErrorInterceptor implements HttpInterceptor {
     return next.handle(request).pipe(
       catchError((error: HttpErrorResponse) => {
         if (error.error instanceof Error) {
-          this.router.navigate(['/error'], {
-            queryParams: { error: error.error.message },
-          });
+          sessionStorage.setItem('errorMessage', error.error.message);
+          this.router.navigate(['/error']);
         } else {
-          this.router.navigate(['/error'], {
-            queryParams: {
-              error: `Backend returned code ${error.status}`,
-            },
-          });
+          sessionStorage.setItem('errorMessage', `Backend returned code ${error.status}`);
+          this.router.navigate(['/error']);
         }
         return EMPTY;
       })
