@@ -39,9 +39,9 @@
       </button>
     </div>
   </div>
-  <div class="row nutrition__warning mb-3">
+  <div *ngIf="ingredientError" class="row nutrition__warning mb-3">
     <div class="col-12">
-      <div *ngIf="ingredientError" class="alert alert-warning col-12" role="alert">
+      <div class="alert alert-warning col-12" role="alert">
         This is a warning alert! We cannot calculate the nutrition for some ingredients. The calculated ingredients are in the above table.
         Please check the ingredient spelling or if you have entered correct quantities for the ingredients.
       </div>
