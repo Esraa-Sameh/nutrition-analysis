@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   onSubmit(ingredientsForm: NgForm) {
     //get the ingredients from the textarea as a string, then split the string with the line breaks
     this.ingredients = ingredientsForm.value['ingredients'].split(/\n/);
-    //remove the empty items to handle the error if the user entered a new line without typing in it
+    //remove the empty items to handle if the user entered a new line without typing in it
     this.ingredients = this.ingredients.filter(item => item!="");
     //pass the ingredients to the service
     this.analyzeService.ingredients = this.ingredients;

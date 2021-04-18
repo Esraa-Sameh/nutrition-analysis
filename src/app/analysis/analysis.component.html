@@ -6,7 +6,7 @@
   </div>
   <div class="row nutrition__table">
     <div class="col-12">
-      <table class="table table-bordered table-responsive">
+      <table class="table table-bordered table-responsive-sm">
         <thead>
           <tr>
             <th scope="col">Quantity</th>
@@ -28,19 +28,23 @@
       </table>
     </div>
   </div>
-  <div class="row nutrition__total">
+  <div class="row nutrition__total mb-5">
     <div class="col-12">
       <button
         (click)="viewTotalNutrition()"
         type="button"
-        class="btn btn-success mb-5"
+        class="btn btn-success"
       >
         Total Nutrition
       </button>
     </div>
-    <div *ngIf="ingredientError" class="alert alert-warning col-12" role="alert">
-      This is a warning alert! We cannot calculate the nutrition for some ingredients. The calculated ingredients are in the above table.
-      Please check the ingredient spelling or if you have entered correct quantities for the ingredients.
+  </div>
+  <div class="row nutrition__warning mb-3">
+    <div class="col-12">
+      <div *ngIf="ingredientError" class="alert alert-warning col-12" role="alert">
+        This is a warning alert! We cannot calculate the nutrition for some ingredients. The calculated ingredients are in the above table.
+        Please check the ingredient spelling or if you have entered correct quantities for the ingredients.
+      </div>
     </div>
   </div>
   <div *ngIf="viewTotal" class="row nutrition__daily">

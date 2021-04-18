@@ -33,8 +33,9 @@ export class AnalyzeService {
         headers: headers
       }));
     } 
+    //handling the case in which the user did not enter data to analyze
     else{
-      this.router.navigate(['/'])
+      this.router.navigate(['/home'])
     }
   }
 }

@@ -28,8 +28,7 @@ export class AnalysisComponent implements OnInit {
       }
       this.totalNutrients = res['analysisResult'].totalNutrients;
       this.totalDaily = res['analysisResult'].totalDaily;
-      console.log(this.totalNutrients);
-      console.log(this.totalDaily);
+     
       //extracting the details of each ingredient from the http response sent by the resolver
       for (let item of res['analysisResult']['ingredients']) {
         if(item['parsed']){
